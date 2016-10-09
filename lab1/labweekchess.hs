@@ -36,10 +36,10 @@ middleBoard = repeatV 2 (above emptyRow otherEmptyRow)
 
 -- d)
 --This array contains the pictures in the proper order
-pictureRow = [rook,knight,bishop,queen,king,bishop,knight,rook]
+pictureRow = [rook,knight,bishop,queen,king,bishop,knight]
 
 chessComplex :: Picture
-chessComplex = foldl (beside) (take 1 pictureRow!!0) (reverse (take (length pictureRow-1) (reverse pictureRow)))
+chessComplex = foldl (beside) (take 1 pictureRow!!0) (reverse pictureRow)
 
 whiteRow :: Picture
 whiteRow = over chessComplex otherEmptyRow
