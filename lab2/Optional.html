@@ -1,0 +1,63 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Programare Declarativă – Laboratorul 2</title>
+<style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</style>
+</head>
+<body>
+<h1>Declarative Programming – Lab 2</h1>
+<h2>Optional Material</h2>
+<h4>Exercises</h4>
+<ol start="8">
+<li>
+<ol type="a">
+<li> Dame Curious is a crossword enthusiast. She has a long list of words that might appear
+in a crossword puzzle, but she has trouble finding the ones that fit a slot. Write a function
+<pre>
+crosswordFind :: Char -&gt; Int -&gt; Int -&gt; [String] -&gt; [String]<br/>
+</pre>
+to help her. The expression
+<pre>
+crosswordFind letter inPosition len words<br/>
+</pre>
+should return all the items from words which (a) are of the given <tt>len</tt>gth and (b) have <tt>letter</tt> in the position <tt>inPosition</tt>. For example, if Curious is looking for seven-letter words that have ’<tt>k</tt>’ in position 1, she can evaluate the expression:
+<pre>
+crosswordFind ’k’ 1 7 [&#34;funky&#34;, &#34;fabulous&#34;, &#34;kite&#34;, &#34;icky&#34;, &#34;ukelele&#34;]<br/>
+</pre>
+which returns <tt>[&#34;ukelele&#34;]</tt>. (Remember that we start counting with 0, so position 1 is the second position of a string.)
+<p>Your definition should use a <i>list comprehension</I>. You may also use a library function which returns the nth element of a list, for argument n, and the function <tt>length</tt>.
+<li> Write a recursive function <tt>crosswordFindRec</tt> to the same specification (you can use the
+same library functions).
+<lI> Write a QuickCheck property <tt>prop_crosswordFind</tt> to test your functions.
+</ol>
+<li>
+<ol type="a">
+<li> Write a function <tt>search :: String -&gt; Char -&gt; [Int]</tt> that returns the positions of
+all occurrences of the second argument in the first. For example
+<pre>
+search &#34;Bookshop&#34; ’o’ == [1,2,6]<br/>
+search &#34;senselessness’s&#34; ’s’ == [0,3,7,8,11,12,14]<br/>
+</pre>
+Your definition should use a <i>list comprehension</I>, not recursion. You may use the function <tt>zip :: [a] -&gt; [b] -&gt; [(a,b)]</tt>, the function <tt>length :: [a] -&gt; Int</tt>, and the term forms <tt>[m..n]</tt> and <tt>[m..]</tt>.
+<li> Write the recursive function <tt>searchRec</tt>. You may like to use an auxiliary function in
+your definition, but you shouldn’t use any library functions.
+<lI> Write a QuickCheck property <tt>prop_search</tt> to test your functions.
+</ol>
+<li>
+<ol type="a">
+<li> Write a function <tt>contains</tt> that takes two strings and returns <tt>True</tt> if the first contains the second as a substring. You can use the library function <tt>isPrefixOf</tt>, which returns <tt>True</tt> if the second string begins with the first string, and any list function in figure <a href="prelude-fn1.png">prelude-fn1.png</a>. For example,
+<pre>
+contains &#34;United Kingdom&#34; &#34;King&#34; == True<br/>
+contains &#34;Appleton&#34; &#34;peon&#34; == False<br/>
+contains &#34;&#34; &#34;&#34; == True<br/>
+</pre>
+Your definition should use a <i>list comprehension</i>, not recursion. A hint: you can use the library function <tt>drop</tt> to create a list of all possible suffixes (“last parts”) of a string.
+<li> Write a <i>recursive</i> function to the same specification. Pay attention to the last case of
+the above three (<tt>containsRec &#34;&#34; &#34;&#34;</tt>).
+<li> Write a QuickCheck property prop_contains to test your functions.
+</ol>
+</ol>
+</body>
+</html>
