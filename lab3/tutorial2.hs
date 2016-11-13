@@ -125,13 +125,12 @@ addFreq :: (Char, Int) -> (Char, Int)
 addFreq (x,i) = (x,i+1)
 
 getPair :: [(Char, Int)] -> (Char, Int)
-getPair (x:xs) w = if (getKey x == getKey w)
+getPair (x:xs) w = if ((getKey x) == (getKey w))
   then w
-  else getPair xs w
+  else (getPair xs w)
 
 countFreqs :: String -> [(Char, Int)]
-countFreqs input = [ addFreq (getPair keyList (getKey y)) | y<-input ]
-  where keyList = zip input [1 | x<-[1..length input]]
+countFreqs = undefined
 
 -- 18
 freqDecipher :: String -> [String]
